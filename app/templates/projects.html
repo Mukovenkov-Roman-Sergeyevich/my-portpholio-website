@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+
+{% block title %}Проекты | Портфолио Муковенков Роман{% endblock %}
+
+{% block content %}
+<!-- Projects Section-->
+<section class="py-5">
+    <div class="container px-5 mb-5">
+        <div class="text-center mb-5">
+            <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Проекты</span></h1>
+        </div>
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-11 col-xl-9 col-xxl-8">
+                <!-- Project Card 1-->
+                <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                    <div class="card-body p-0">
+                        <div class="d-flex align-items-center">
+                            <div class="p-5">
+                                <h2 class="fw-bolder">Калькулятор длинных чисел</h2>
+                                <p>Самая первая серьёзна работа на C, старые добрые linked list. Есть сложение, умножение и деление. Хорошие были времена.Ссылка не включена, ввиду использования задания в образовательных целях</p>
+                            </div>
+                            <div class="image-container">
+                                <img
+                                    class="img-fluid zoom-pan-effect"
+                                    src="../static/assets/calculator.webp"
+                                    alt="..."
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Like Button Section -->
+                <div class="text-center mt-5">
+                    <p class="h5">
+                        <span class="lead fw-light mb-4">{{ likes_project1 }}</span>
+                        <!-- Heart Button -->
+                        <span class="text-gradient">
+                            {% if user_name != "Гость" %}
+                                <form action="{{ url_for('toggle_like') }}" method="POST">
+                                    <input type="hidden" name="page" value="project1">
+                                    <button type="submit" class="btn btn-link" style="border: none; background: transparent; padding: 0;">
+                                        {% if has_liked1 %}
+                                            <i class="bi bi-heart-fill text-danger" style="cursor: pointer;" title="Вам понравился проект <3"></i>
+                                        {% else %}
+                                            <i class="bi bi-heart text-danger" style="cursor: pointer;" title="Понравился проект?"></i>
+                                        {% endif %}
+                                    </button>
+                                </form>
+                            {% else %}
+                                <i class="bi bi-heart text-danger" style="cursor: pointer;" title="Зайдите, чтобы оставить отметку 'Нравится'"></i>
+                            {% endif %}
+                        </span>
+                    </p>
+                </div>
+                <!-- Project Card 2-->
+                <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                    <div class="card-body p-0">
+                        <div class="d-flex align-items-center">
+                            <div class="p-5">
+                                <a href="https://github.com/spbu-coding-2023/trees-1/" target="_blank">
+                                    <h2 class="fw-bolder">Библиотека бинарных деревьев</h2>
+                                </a>
+                                <p>Kotlin. Библиотека, которая имплементирует деревья бинарного поиска. Работа в команде: красно-чёрное дерево, traversals, fuzzing и обычные тесты для своего кода. Интерфейс гранулярный, решение удобное</p>
+                            </div>
+                            <div class="image-container">
+                                <a href="https://github.com/spbu-coding-2023/trees-1/" target="_blank">
+                                    <img
+                                        class="img-fluid zoom-pan-effect"
+                                        src="../static/assets/redblacktree.png"
+                                        alt="..."
+                                    />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Like Button Section -->
+                <div class="text-center mt-5">
+                    <p class="h5">
+                        <span class="lead fw-light mb-4">{{ likes_project2 }}</span>
+                        <!-- Heart Button -->
+                        <span class="text-gradient">
+                            {% if user_name != "Гость" %}
+                                <form action="{{ url_for('toggle_like') }}" method="POST">
+                                    <input type="hidden" name="page" value="project2">
+                                    <button type="submit" class="btn btn-link" style="border: none; background: transparent; padding: 0;">
+                                        {% if has_liked2 %}
+                                            <i class="bi bi-heart-fill text-danger" style="cursor: pointer;" title="Вам понравился проект <3"></i>
+                                        {% else %}
+                                            <i class="bi bi-heart text-danger" style="cursor: pointer;" title="Понравился проект?"></i>
+                                        {% endif %}
+                                    </button>
+                                </form>
+                            {% else %}
+                                <i class="bi bi-heart text-danger" style="cursor: pointer;" title="Зайдите, чтобы оставить отметку 'Нравится'"></i>
+                            {% endif %}
+                        </span>
+                    </p>
+                </div>
+                <!-- Project Card 3-->
+                <div class="card overflow-hidden shadow rounded-4 border-0">
+                    <div class="card-body p-0">
+                        <div class="d-flex align-items-center">
+                            <div class="p-5">
+                                <a href="https://github.com/spbu-coding-2023/graphs-1-1/" target="_blank">
+                                    <h2 class="fw-bolder">Библиотека графов с GUI</h2>
+                                </a>
+                                <p>Kotlin. Работал в команде. GUI на Compose, с помощью которого можно работать с библиотекой различных алгоритмов. Присутствует сохранение и загрузка с помощью различных баз данных</p>
+                            </div>
+                            <div class="image-container">
+                                <a href="https://github.com/spbu-coding-2023/graphs-1-1/" target="_blank">
+                                    <img
+                                        class="img-fluid zoom-pan-effect"
+                                        src="../static/assets/graphs.jpg"
+                                        alt="..."
+                                    />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Like Button Section -->
+                <div class="text-center mt-5">
+                    <p class="h5">
+                        <span class="lead fw-light mb-4">{{ likes_project3 }}</span>
+                        <!-- Heart Button -->
+                        <span class="text-gradient">
+                            {% if user_name != "Гость" %}
+                                <form action="{{ url_for('toggle_like') }}" method="POST">
+                                    <input type="hidden" name="page" value="project3">
+                                    <button type="submit" class="btn btn-link" style="border: none; background: transparent; padding: 0;">
+                                        {% if has_liked3 %}
+                                            <i class="bi bi-heart-fill text-danger" style="cursor: pointer;" title="Вам понравился проект <3"></i>
+                                        {% else %}
+                                            <i class="bi bi-heart text-danger" style="cursor: pointer;" title="Понравился проект?"></i>
+                                        {% endif %}
+                                    </button>
+                                </form>
+                            {% else %}
+                                <i class="bi bi-heart text-danger" style="cursor: pointer;" title="Зайдите, чтобы оставить отметку 'Нравится'"></i>
+                            {% endif %}
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Call to action section-->
+<section class="py-5 bg-gradient-primary-to-secondary text-white">
+    <div class="container px-5 my-5">
+        <div class="text-center">
+            <h2 class="display-4 fw-bolder mb-4">В данный момент работаю с FPGA</h2>
+            <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="https://t.me/RISCVenjoyer">Телеграм</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
